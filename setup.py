@@ -6,7 +6,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='topsis102203633Danishsharma',
-    version='0.1.0',
+    version='1.0.1',  
     description='A Python package for TOPSIS implementation',
     author='Danish Sharma',
     author_email='dsharma.workmain@gmail.com',
