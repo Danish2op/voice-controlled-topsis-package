@@ -71,7 +71,7 @@ impacts = ['+', '-', '+', '-', '+']
 ### 🧑‍💻 Step 2: Create the TOPSIS Object
 
 ```python
-topsis = Topsis(df, weights, impacts, distance_metric='euclidean', missing_data_strategy='mean', show_para=True)
+topsis = Topsis(df, weights, impacts, distance_metric='euclidean', missing_data_strategy='mean', show_para=True, reverse_rank=False)
 ```
 
 - **distance_metric**: Choose from `'euclidean'`, `'manhattan'`, `'chebyshev'`, `'minkowski'`, or `'cosine'`.
@@ -124,6 +124,7 @@ Here are the **default parameters** that you can use:
 - **Distance Metric**: `'euclidean'`
 - **Missing Data Strategy**: `'mean'`
 - **Show Parameters**: `False`
+- **Reverse Rank**: `False` the alternative with maximum topsis score is on top.
 
 ---
 

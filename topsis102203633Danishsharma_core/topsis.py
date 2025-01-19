@@ -55,8 +55,6 @@ class Topsis:
         self.reverse_rank = reverse_rank
 
     def calculate(self):
-    
-    
     # Select only numeric columns to avoid errors
         numeric_cols = self.df.select_dtypes(include=['number'])
         norm_df = numeric_cols.apply(lambda x: x / np.sqrt((x**2).sum()), axis=0)
@@ -102,11 +100,14 @@ class Topsis:
             'Topsis Score': scores
         })
 
-        # Rank based on scores
-        result_df['Rank'] = result_df['Topsis Score'].rank(ascending=not self.reverse_rank, method='max')
+        # Assign ranks based on Topsis Score
+        result_df['Rank'] = result_df['Topsis Score'].rank(
+            ascending=not self.reverse_rank,  # Ascending ranks if reverse_rank is False
+            method='min'  # Rank using the minimum value
+        )
 
         # Sort the DataFrame based on rank
-        result_df = result_df.sort_values(by='Rank', ascending=not self.reverse_rank)
+        result_df = result_df.sort_values(by='Rank')
 
         if self.show_para:
             # Display the full dataframe with parameters, Topsis Score, and Rank
